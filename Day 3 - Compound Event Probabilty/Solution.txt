@@ -1,0 +1,24 @@
+PROBLEM :
+  There are 3 urns labeled X, Y, and Z.
+
+  1. Urn X contains 4 red balls and 3 black balls. 
+  2. Urn Y contains 5 red balls and 4 black balls.
+  3. Urn Z contains 4 red balls and 4 black balls. 
+
+  One ball is drawn from each of the 3 urns. What is the probability that, of the 3 balls drawn, 2 are red and 1 is black?
+
+SOLUTION :
+
+  P(Urn X giving red ball R)=4/7
+  P(Urn Y giving red ball R)=5/9
+  P(Urn Z giving red ball R)=1/2
+
+  P(Urn X giving black ball B)=3/7
+  P(Urn Y giving black ball B)=4/9
+  P(Urn Z giving black ball B)=1/2
+
+  P(2 R, 1 B) = P(RRB) + P(RBR) + P(BRR)
+              =(4/7)(5/9)(1/2) + (4/7)(4/9)(1/2) + (3/7)(5/9)(1/2)
+              =17/42
+
+  ANSWER : 17/42
