@@ -7,4 +7,4 @@ There are 4 possible scenarios: (B, B), (B, G), (G, B), (G, G)
 
 We know that 1 child is a boy, so now we have 3 scenarios: (B, B), (B, G), (G, B)
 
-hence, ANSWER : 1/3
+Hence, ANSWER : 1/3
