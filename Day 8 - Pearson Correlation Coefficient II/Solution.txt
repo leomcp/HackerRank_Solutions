@@ -1,0 +1,32 @@
+The regression line of y on x is 3x+4y+8=0 , and the regression line of x on y is 4x+3y+7. What is the value of the Pearson correlation coefficient?
+
+Answer : (-3/4)
+
+Solution :
+
+given,
+
+y = -2 + (-3/4) * x
+x = -7/4 + (-3/4) * y
+
+so b1 = -3/4 and b2 = -3/4
+
+Let,
+ p = pearson coefficient
+ xStd = standard deviation of x
+ yStd = standard deviation of y
+
+p = b1 (xStd / yStd)   -----------1
+p = b2 (yStd / xStd)   -----------2
+
+Multiplying equation 1 and 2 
+
+p^2=b1*b2
+p^2=(-3/4)*(-3/4)
+
+Therefore, 
+
+p=(-3/4) or (3/4)
+
+plotting 2 sets of (x,y) points to see if x and y are positively or negatively correlated.
+In this case, they are negatively correlated, so p = [-3/4]
