@@ -16,14 +16,11 @@ def luckBalance(k, contest):
 		if not is_imp:
 			balance += luck
 			continue
-		
 		if k > 0:
 			balance+=luck
 			k-=1
 		else:
 			balance-=luck
-			
-	
 	return balance
 
 
@@ -31,20 +28,14 @@ def luckBalance(k, contest):
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
     nk = input().split()
-
     n = int(nk[0])
-
     k = int(nk[1])
-
     contests = []
 
     for _ in range(n):
         contests.append(list(map(int, input().rstrip().split())))
 
     result = luckBalance(k, contests)
-
     fptr.write(str(result) + '\n')
-
     fptr.close()
