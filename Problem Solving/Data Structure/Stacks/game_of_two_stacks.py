@@ -1,30 +1,132 @@
-def twoStacks(k, a, b):
-    #
-    # Write your code here.
-    #
-    count, runSum = 0, 0 
+#!/bin/python3
 
-    if len(a) <= len(b):
-        x = len(a)
-    else:
-        x = len(a)
+import os
+"""
+class ArrayStack:
 
-    for i in range(x):
-        minelem = min(a[0], b[0])
-        runSum = runSum + minelem
-        print(runSum, minelem, count, k)
-        if runSum >= k:
-            return count
+    def __init__(self):
+        self._data = []
+        self._size = int(0) 
+        self._front = int(0) 
+
+    def is_empty(self):
+        return self._size == 0
+
+    def __len__(self):
+        return self._size
+
+
+    def getFirst(self):
+        if self.is_empty():
+            return 0 
         else:
-            if minelem == a[0]:
-                a.pop(0)
-            else:
-                b.pop(0)
-            count = count + 1 
-    return count 
+            return self._data[self._front]
 
-print(twoStacks(10, [4,2,4,6,1], [2,1,8,5]))
 
-17 26 62
-7 15 12 0 5 18 17 2 10 15 4 2 9 15 13 12 16
-12 16 6 8 16 15 18 3 11 0 17 7 6 11 14 13 15 6 18 6 16 12 16 11 16 11
+    def add_element(self, elem):
+        self._data.append(elem)
+        self._size = self._size + 1 
+
+    def pop(self):
+        if self.is_empty():
+            return 0 
+        else:
+            self._data[self._front] = None 
+            self._front = self._front + 1 
+            self._size = self._size - 1
+
+    def displayStack(self):
+        print(self._data)
+"""
+class QueueStack:
+
+    def __init__(self):
+        self._data = []
+        self._size = 0 
+        self._front = 0 
+
+    def is_empty(self):
+        return self._size == 0 
+
+    def __len__(self):
+        return self._size
+
+    def getFirst(self):
+        if self.is_empty():
+            return 0
+        else:
+            return self._data[self._front]
+
+    def add_element(self, elem):
+        self._data.append(elem)
+        self._size = self._size + 1 
+
+    def pop(self):
+        if self.is_empty():
+            return 0 
+        else:
+            self._data[self._front] = None
+            self._front = self._front + 1
+            self._size = self._size - 1
+
+    def displayStack(self):
+        print(self._data)
+
+
+def twoStacks(k, a, b):
+    sum , count = 0, 0 
+    stackA = QueueStack()
+    stackB = QueueStack()
+
+    for i in a:
+        stackA.add_element(i)
+    for i in b:
+        stackB.add_element(i)
+
+    #stackA.displayStack()
+    #stackB.displayStack()
+
+
+
+    while(sum<=k):
+        if stackA.getFirst() >= stackB.getFirst():
+            sum = sum + stackA.getFirst()
+            #print(stackA.getFirst(), stackB.getFirst(), sum, count)
+            stackA.pop()
+        else:
+            sum = sum + stackB.getFirst()
+            #print(stackA.getFirst(), stackB.getFirst(), sum, count)
+            stackB.pop()  
+        count = count + 1 
+        #stackA.displayStack()
+        #stackB.displayStack()
+
+    return count
+
+
+
+if __name__ == "__main__":
+
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    g = int(input())
+
+    for games in range(g):
+
+        inp = list(map(int, input().rstrip().split()))
+
+        n = int(inp[0])
+        m = int(inp[1])
+        x = int(inp[2])
+
+        a = list(map(int, input().split()))
+
+        b = list(map(int, input().split()))
+
+        result = twoStacks(x, a, b)
+
+        #print(result)
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+

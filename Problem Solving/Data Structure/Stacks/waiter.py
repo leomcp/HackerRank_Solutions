@@ -4,9 +4,9 @@ import os
 import sys
 
 #
-# Complete the runningMedian function below.
+# Complete the waiter function below.
 #
-def runningMedian(a):
+def waiter(number, q):
     #
     # Write your code here.
     #
@@ -14,15 +14,15 @@ def runningMedian(a):
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    a_count = int(input())
+    nq = input().split()
 
-    a = []
+    n = int(nq[0])
 
-    for _ in range(a_count):
-        a_item = int(input())
-        a.append(a_item)
+    q = int(nq[1])
 
-    result = runningMedian(a)
+    number = list(map(int, input().rstrip().split()))
+
+    result = waiter(number, q)
 
     fptr.write('\n'.join(map(str, result)))
     fptr.write('\n')
