@@ -47,6 +47,16 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def getNode(head, positionFromTail):
+    req_node, curr_node = head, head 
+    itr = 1 
+
+    while curr_node!=None:
+        if itr > (positionFromTail+1):
+            req_node = req_node.next 
+        curr_node = curr_node.next 
+        itr = itr + 1
+    
+    return str(req_node.data)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

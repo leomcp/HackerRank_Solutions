@@ -43,8 +43,22 @@ def print_singly_linked_list(node, sep, fptr):
 #     SinglyLinkedListNode next
 #
 #
-def compare_lists(llist1, llist2):
+def compare_lists(llist1, llist2):  
 
+    node1 = llist1 
+    node2 = llist2 
+
+    while node1!=None and node2!=None:
+        if node1.data !=  node2.data:
+            return  0
+        node1 = node1.next 
+        node2 = node2.next 
+
+        if (node1 == None and node2 != None) or (node1!=None and node2==None):
+            return 0 
+
+    return 1 
+        
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 

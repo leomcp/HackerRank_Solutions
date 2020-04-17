@@ -48,6 +48,23 @@ def print_singly_linked_list(node, sep, fptr):
 #
 def removeDuplicates(head):
 
+    prev_node, curr_node = None, head
+
+    while(curr_node!=None):
+        if prev_node!=None and prev_node.data==curr_node.data:
+            if curr_node.next ==None:
+                prev_node.next = None
+                return head 
+            else:
+                curr_node = curr_node.next 
+                prev_node.next = curr_node
+        else:       
+            prev_node = curr_node
+            curr_node = curr_node.next 
+
+    return head 
+
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
