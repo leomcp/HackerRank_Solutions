@@ -50,6 +50,32 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 #
 def sortedInsert(head, data):
+    inserted = False 
+    node = DoublyLinkedListNode(data)
+    if head == None:
+        head = node 
+    else:
+        prev_node=None
+        curr_node = head
+        while curr_node!=None:
+            if curr_node.data>=node.data:
+                prev_node = curr_node.prev
+                curr_node.prev = node 
+                node.next = curr_node
+                node.prev = prev_node 
+                if prev_node!=None:
+                    prev_node.next = node
+                inserted = True 
+                if curr_node == head:
+                    head = node 
+                break 
+            else:
+                prev_node = curr_node
+                curr_node = curr_node.next 
+        if not inserted:
+            prev_node.next = node
+            node.prev = prev_node
+    return head 
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
