@@ -1,18 +1,26 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the solve function below.
 
 def solve(s):
-	res = ""
+    res = ""
+    for word in s.split(' '):
+        res = res + word.capitalize() + " "
+    return res 
 
-	for word in s.split():
-		print(word)
-		word = word.capitalize()
-		res = res + word + ""
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-	return res 
+    s = input()
 
+    result = solve(s)
 
-print(solve("amit trivedi lol"))
-print(solve("123 433 j amit trivedi lol"))
-print(solve("a m i t t r i v e d i l o l"))
-print(solve("1 2 3 4 5 5  9"))
+    fptr.write(result + '\n')
 
-
+    fptr.close()
