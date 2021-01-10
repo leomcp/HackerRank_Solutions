@@ -34,7 +34,6 @@ class BinarySearchTree:
                 else:
                     break
 
-
 """
 Node is defined as
 self.left (the left child of the node)
@@ -55,7 +54,6 @@ def levelOrder(root):
             queue.append(node.left)
         if node.right is not None:
             queue.append(node.right)
-
 
 
 

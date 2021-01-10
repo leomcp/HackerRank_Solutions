@@ -38,7 +38,8 @@ class BinarySearchTree:
 Node is defined as
 self.left (the left child of the node)
 self.right (the right child of the node)
-self.info (the value of the node)"""
+self.info (the value of the node)
+"""
 def level_order(root):
     q = []
     lvl_order = []
@@ -89,7 +90,6 @@ def vertical_order(root):
             return vertical_order_map
             
         
-
 def topView(root):
     #Write your code here
     lvl_order = level_order(root)
@@ -108,16 +108,13 @@ def topView(root):
     print("")
 
                 
-    
+if __name__ == "__main__":
+    tree = BinarySearchTree()
+    t = int(raw_input())
+
+    arr = list(map(int, raw_input().split()))
+
+    for i in xrange(t):
+        tree.create(arr[i])
         
-      
-
-tree = BinarySearchTree()
-t = int(raw_input())
-
-arr = list(map(int, raw_input().split()))
-
-for i in xrange(t):
-    tree.create(arr[i])
-    
-topView(tree.root)
+    topView(tree.root)
