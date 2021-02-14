@@ -47,7 +47,17 @@ class Node:
 '''
 
 def lca(root, v1, v2):
-  #Enter your code here
+    if root:
+        return _lca(root, v1, v2)  
+  
+def _lca(curr_node, v1, v2):
+    if curr_node.info < v1 and curr_node.info < v2:
+        return _lca(curr_node.right, v1, v2)
+    elif curr_node.info > v1 and curr_node.info > v2:
+        return _lca(curr_node.left, v1, v2)
+    
+    return curr_node
+
 
 tree = BinarySearchTree()
 t = int(input())
